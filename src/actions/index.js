@@ -16,8 +16,6 @@ export function HandleTodoApi(){
         fetch(url)
         .then(response => response.json())
         .then(list => {
-            console.log('lists',list);
-
             dispatch(AddList(list))
         });
     }

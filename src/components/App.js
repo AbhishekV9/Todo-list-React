@@ -15,15 +15,17 @@ class App extends Component{
 
   render(){
     const {list}= this.props;
-    console.log(list);
     return(
       <div>
           <div>
               <Form />
           </div>
           <div>
-              { list.map((listItem,index)=>(
-                  < TodoCard />
+              { list.map((listItem)=>(
+                  <TodoCard 
+                   list={listItem}
+                   key={listItem.id}
+                  />
               ))}
           </div>
       </div>
@@ -34,7 +36,6 @@ class App extends Component{
 function mapStateToProps(state){
   return{
     list:state.list,
-    store:state
   }
 }
 
