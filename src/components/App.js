@@ -8,9 +8,7 @@ import { HandleTodoApi } from '../actions';
 class App extends Component{
   
   componentDidMount(){
-    console.log('before state',this.props);
     this.props.dispatch(HandleTodoApi());
-    console.log('after state',this.props.store);
   }
 
   render(){
@@ -21,10 +19,11 @@ class App extends Component{
               <Form />
           </div>
           <div>
-              { list.map((listItem)=>(
+              { list.map((listItem,index)=>(
                   <TodoCard 
                    list={listItem}
                    key={listItem.id}
+                   index={index}
                   />
               ))}
           </div>
