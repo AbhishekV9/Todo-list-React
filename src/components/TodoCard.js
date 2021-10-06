@@ -13,7 +13,7 @@ function TodoCard(props){
         <div className="card-body">
         <p className="card-text">Task:- { list.title} </p>
           <p className="card-text">Completed:- { String(list.completed)} </p>
-           <button className="btn btn-outline-success">Completed</button>
+           <button className="btn btn-outline-success" onClick= { () => props.complete(list.id)}>Completed</button>
            <button className="btn btn-outline-danger" onClick = { () => props.delete(list.id)} >Delete</button>
         </div>
       </div>

@@ -2,6 +2,15 @@ export const ADD_LISTS= 'ADD_LISTS';
 export const ADD_NEW= 'ADD_NEW';
 export const UPDATE_LIST= "UPDATE_LIST";
 export const DELETE_TAKS= "DELETE_TASK";
+export const COMPLETE_TASK="COMPLETE_TASK";
+
+
+export function TaskComplete(id){
+    return{
+        type:COMPLETE_TASK,
+        id
+    }
+}
 
 export function DeleteTask(id){
     return{
@@ -99,6 +108,27 @@ export function HandleDelete(id){
         }).then(response => response.json())
         .then(data => {
             dispatch(DeleteTask(id))
+        })
+    }
+}
+
+export function CompleteTask(id){
+    const url='https://jsonplaceholder.typicode.com/todos/1';
+
+    return function(dispatch){
+        fetch(url,{
+            method:'PUT',
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+              },
+            body:JSON.stringify({
+                    id:id,
+                    completed:true,
+                
+            })
+        }).then(response => response.json())
+        .then(data => {
+            dispatch(TaskComplete(id));
         })
     }
 }
