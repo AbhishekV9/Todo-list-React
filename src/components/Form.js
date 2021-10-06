@@ -59,18 +59,37 @@ class Form extends Component{
 
     render(){      
         return(
-           <div>
-               <p className="h2">Add Task</p>
-                <div className="input-group mb-3">
+           <div className='p-3'>
+                <div className="header">
+                    <div className="mx-auto m-3 " style={ {width: "150px"} }>
+                    <h2>Add Task</h2>
+                    </div>
+                </div>
+                
+                <div className="input-group mb-3 p-3">
                     <input type="text" className="form-control" placeholder="Enter the task" aria-label="Recipient's username" aria-describedby="button-addon2" value={this.state.text} onChange={this.handleChange} />
                     <button className="btn btn-outline-secondary" type="button" id="button-addon2" onClick={this.handleAddTask}>Add Task</button>
                 </div>
-                <p className="h2">Update Task</p>
-                <div className="input-group mb-3">                   
-                    <input type="text" className="form-control" placeholder="What to Update" aria-label="Recipient's username" aria-describedby="button-addon2" value={this.state.updateText} onChange={this.whatUpdate} />
+            
+                <div className="mt-5">
+                    <div className="header">
+                        <div className="mx-auto m-3 " style={ {width: "200px"} }>
+                        <h2>Update Task</h2>
+                        </div>
+                    </div>
+                    <div className="p-3">
+                        <h4>Enter Task Title</h4>
+                        <div className="input-group mb-3 ">                   
+                            <input type="text" className="form-control" placeholder="What to Update" aria-label="Recipient's username" aria-describedby="button-addon2" value={this.state.updateText} onChange={this.whatUpdate} />
+                        </div>
+                        <h4>Enter Task Id</h4>
+                        <input type="number" className="form-control " placeholder="List Id" aria-label="Recipient's username" aria-describedby="button-addon2" value={this.state.id} onChange={this.handleIdChange} />
+                        <div className="mx-auto m-3 " style={ {width: "150px"} }>
+                        <button className="btn btn-primary" onClick={this.handleUpdateTask}> Update Task</button>
+                        </div>
+                        
+                    </div>
                 </div>
-                <input type="number" className="form-control" placeholder="List Id" aria-label="Recipient's username" aria-describedby="button-addon2" value={this.state.id} onChange={this.handleIdChange} />
-                <button className="btn btn-primary" onClick={this.handleUpdateTask}> Update Task</button>
            </div>
         )
     }

@@ -23,19 +23,26 @@ class App extends Component{
     const {list}= this.props;
     return(
       <div>
-          <div>
-              <Form />
+          <div className="header">
+            <div className="mx-auto m-3 p-3" style={ {width: "280px"} }>
+              <h1>TODO-LIST</h1>
+            </div>
           </div>
-          <div>
-              { list.map((listItem,index)=>(
-                  <TodoCard 
-                   list={listItem}
-                   key={listItem.id}
-                   index={index}
-                   delete={this.handleDeleteTask}
-                   complete={this.handleCompleteTask}
-                  />
-              ))}
+          <div id="main" className="b-3">
+            <div id="form" className="w-40 ">
+                <Form />
+            </div>
+            <div id="todo-container" className="w-50 bl-3">
+                { list.map((listItem,index)=>(
+                    <TodoCard 
+                    list={listItem}
+                    key={listItem.id}
+                    index={index}
+                    delete={this.handleDeleteTask}
+                    complete={this.handleCompleteTask}
+                    />
+                ))}
+            </div>
           </div>
       </div>
     )
