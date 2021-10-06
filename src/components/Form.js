@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
 
+
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import { AddTodoApi, Update } from '../actions';
 
@@ -23,7 +24,7 @@ class Form extends Component{
             idNo:this.state.idNo+1
         })
         const {text,idNo}=this.state;
-        if(text==''){
+        if(text===''){
             alert("Please Enter Task Title")
         }
         const length=idNo;
