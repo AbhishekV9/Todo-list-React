@@ -60,7 +60,7 @@ export function AddTodoApi(text,length){
 
         }).then(response => response.json())
         .then(data => {
-            data.id=length+1;
+            data.id=length;
             dispatch(AddnewData(data));
         })
     }

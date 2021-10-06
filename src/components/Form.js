@@ -11,13 +11,16 @@ class Form extends Component{
         this.state={
             text:'',
             id:'',
-            updateText:''
+            updateText:'',
+            idNo:200
         }
     }
     handleAddTask=async ()=>{
-        const {text}=this.state;
-        const length=this.props.list.length;
-        console.log(text,length);
+        await this.setState({
+            idNo:this.state.idNo+1
+        })
+        const {text,idNo}=this.state;
+        const length=idNo;
         await this.props.dispatch(AddTodoApi(text,length));
         this.setState({
             text:'',
