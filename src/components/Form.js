@@ -23,6 +23,9 @@ class Form extends Component{
             idNo:this.state.idNo+1
         })
         const {text,idNo}=this.state;
+        if(text==''){
+            alert("Please Enter Task Title")
+        }
         const length=idNo;
         await this.props.dispatch(AddTodoApi(text,length));
         this.setState({
@@ -34,6 +37,9 @@ class Form extends Component{
     //on clicking update button we are dispatching an action to update the task according to the provided ID
     handleUpdateTask=async ()=>{
         const {id,updateText}= this.state;
+        if(id=== '' || updateText=== ''){
+            alert("Please Enter the ID or Text");
+        }
         const {dispatch} =this.props;
         await dispatch(Update(parseInt(id),updateText));
         this.setState({
