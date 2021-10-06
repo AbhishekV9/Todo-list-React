@@ -60,8 +60,8 @@ export function AddTodoApi(text,length){
     }
 }
 
-export function Update(id,updateText,list){
-    const url=`https://jsonplaceholder.typicode.com/todos/${id}`;
+export function Update(id,updateText){
+    const url=`https://jsonplaceholder.typicode.com/todos/1`;
 
     return function(dispatch){
 
@@ -77,7 +77,6 @@ export function Update(id,updateText,list){
             })
         }).then(response => response.json())
         .then(data => {
-            console.log(Number(id));
             dispatch(updateState(Number(id),updateText)); 
         })
     }
