@@ -2,6 +2,7 @@ import React  from "react";
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
+//functional component:-return task
 function TodoCard(props){
     const {list,index}=props;
     return(

@@ -1,3 +1,4 @@
+//defined all the required const
 export const ADD_LISTS= 'ADD_LISTS';
 export const ADD_NEW= 'ADD_NEW';
 export const UPDATE_LIST= "UPDATE_LIST";
@@ -40,6 +41,7 @@ export function updateState(id,text){
     }
 }
 
+//returning a function wich is then call by thunk middleware with dispatch as an argument:- This function is used to call API and then dispatching the action with the Data we get after API call.
 export function HandleTodoApi(){
     
     const url= 'https://jsonplaceholder.typicode.com/todos';
@@ -53,6 +55,7 @@ export function HandleTodoApi(){
     }
 }
 
+//returning a function wich is then call by thunk middleware with dispatch as an argument:- This function is used to make Fake API call because we cannot change server side data and then dispatching an action to add new Task to our gloabal state
 export function AddTodoApi(text,length){
     const url='https://jsonplaceholder.typicode.com/todos';
 
@@ -75,6 +78,7 @@ export function AddTodoApi(text,length){
     }
 }
 
+//returning a function wich is then call by thunk middleware with dispatch as an argument:- This function is used to make Fake API call because we cannot change server side data and then dispatching an action to update the task for given Id in our gloabal state.
 export function Update(id,updateText){
     const url=`https://jsonplaceholder.typicode.com/todos/1`;
 
@@ -98,6 +102,7 @@ export function Update(id,updateText){
     
 }
 
+//returning a function wich is then call by thunk middleware with dispatch as an argument:- This function is used to make Fake API call because we cannot change server side data and then dispatching an action to delete Task for given id in global state.
 export function HandleDelete(id){
 
     const url='https://jsonplaceholder.typicode.com/todos/1';
@@ -112,6 +117,7 @@ export function HandleDelete(id){
     }
 }
 
+//returning a function wich is then call by thunk middleware with dispatch as an argument:- This function is used to make Fake API call because we cannot change server side data and then dispatching an action to complete Task for given id in global state.
 export function CompleteTask(id){
     const url='https://jsonplaceholder.typicode.com/todos/1';
 

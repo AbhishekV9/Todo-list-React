@@ -7,14 +7,17 @@ import { HandleTodoApi , HandleDelete, CompleteTask } from '../actions';
 
 class App extends Component{
   
+  //when component is mounted then dispatching an action to fetch tasks from API
   componentDidMount(){
     this.props.dispatch(HandleTodoApi());
   }
 
+  //function for deleting tasks from state
   handleDeleteTask= (id)=> {
     this.props.dispatch(HandleDelete(id))
   }
 
+  //function to marks task as completed 
   handleCompleteTask= (id) => {
     this.props.dispatch(CompleteTask(id))
   }
@@ -22,17 +25,19 @@ class App extends Component{
   render(){
     const {list}= this.props;
     return(
-      <div id="ok">
+      <div >
           <div   className="header h-5 fixed-top mb-7">
             <div className="mx-auto m-3" style={ {width: "280px"} }>
               <h1>TODO-LIST</h1>
             </div>
           </div>
           <div id="main" className="b-3 mt-3">
+            {/* rendering form Component */}
             <div id="form" className="w-40 ">
                 <Form />
             </div>
             <div id="todo-container" className="w-50 bl-3 mb-4">
+              {/* rendering todoCard component */}
                 { list.map((listItem,index)=>(
                   <div className="mt-6">
                         <TodoCard 
