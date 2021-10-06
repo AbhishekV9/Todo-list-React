@@ -3,7 +3,7 @@ import {connect } from "react-redux";
 
 import TodoCard from './TodoCard';
 import Form from './Form'
-import { HandleTodoApi } from '../actions';
+import { HandleTodoApi , HandleDelete } from '../actions';
 
 class App extends Component{
   
@@ -11,6 +11,10 @@ class App extends Component{
     this.props.dispatch(HandleTodoApi());
   }
 
+  handleDeleteTask= (id)=> {
+    console.log(id);
+    this.props.dispatch(HandleDelete(id))
+  }
   render(){
     const {list}= this.props;
     return(
@@ -24,6 +28,7 @@ class App extends Component{
                    list={listItem}
                    key={listItem.id}
                    index={index}
+                   delete={this.handleDeleteTask}
                   />
               ))}
           </div>

@@ -1,8 +1,14 @@
 export const ADD_LISTS= 'ADD_LISTS';
 export const ADD_NEW= 'ADD_NEW';
 export const UPDATE_LIST= "UPDATE_LIST";
+export const DELETE_TAKS= "DELETE_TASK";
 
-
+export function DeleteTask(id){
+    return{
+        type:DELETE_TAKS,
+        id
+    }
+}
 export function AddList(list){
     return{
         type:ADD_LISTS,
@@ -81,4 +87,18 @@ export function Update(id,updateText){
         })
     }
     
+}
+
+export function HandleDelete(id){
+
+    const url='https://jsonplaceholder.typicode.com/todos/1';
+
+    return function(dispatch){
+        fetch(url,{
+            method:'DELETE'
+        }).then(response => response.json())
+        .then(data => {
+            dispatch(DeleteTask(id))
+        })
+    }
 }

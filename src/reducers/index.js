@@ -1,4 +1,4 @@
-import { ADD_LISTS,ADD_NEW,UPDATE_LIST } from '../actions'
+import { ADD_LISTS,ADD_NEW,DELETE_TAKS,UPDATE_LIST } from '../actions'
 
 
 const initialState={
@@ -23,6 +23,12 @@ export default function TodoLists(state= initialState,action){
           return{
               ...state,
               list:newArray
+          }
+      case DELETE_TAKS:
+          const filteredArray=state.list.filter(list => list.id !== action.id);
+          return{
+              ...state,
+              list:filteredArray
           }
       default:
           return  state;

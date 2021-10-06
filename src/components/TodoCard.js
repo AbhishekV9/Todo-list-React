@@ -14,7 +14,7 @@ function TodoCard(props){
         <p className="card-text">Task:- { list.title} </p>
           <p className="card-text">Completed:- { String(list.completed)} </p>
            <button className="btn btn-outline-success">Completed</button>
-           <button className="btn btn-outline-danger">Delete</button>
+           <button className="btn btn-outline-danger" onClick = { () => props.delete(list.id)} >Delete</button>
         </div>
       </div>
     )
