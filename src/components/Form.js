@@ -26,6 +26,7 @@ class Form extends Component{
         const {text,idNo}=this.state;
         if(text===''){
             alert("Please Enter Task Title")
+            return;
         }
         const length=idNo;
         await this.props.dispatch(AddTodoApi(text,length));
@@ -39,7 +40,8 @@ class Form extends Component{
     handleUpdateTask=async ()=>{
         const {id,updateText}= this.state;
         if(id=== '' || updateText=== ''){
-            alert("Please Enter the ID or Text");
+            alert("Please Enter the ID and Text");
+            return;
         }
         const {dispatch} =this.props;
         await dispatch(Update(parseInt(id),updateText));
